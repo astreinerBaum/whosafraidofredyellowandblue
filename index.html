@@ -35,11 +35,44 @@ Please break and redistribute. I promise restauration will not cost anything ;)
     <meta name="og:type" content="website">
 
     <style>
+        html,
         body {
             margin: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             display: flex;
+        }
+
+        body:-webkit-full-screen {
+            cursor: none;
+        }
+
+        body:-moz-full-screen {
+            cursor: none;
+        }
+
+        body:-ms-fullscreen {
+            cursor: none;
+        }
+
+        body:fullscreen {
+            cursor: none;
+        }
+
+        body:-webkit-full-screen {
+            background-color: yellow;
+        }
+
+        body:-moz-full-screen {
+            background-color: yellow;
+        }
+
+        body:-ms-fullscreen {
+            background-color: yellow;
+        }
+
+        body:fullscreen {
+            background-color: yellow;
         }
 
         .blue {
@@ -60,6 +93,24 @@ Please break and redistribute. I promise restauration will not cost anything ;)
             width: 1%;
         }
     </style>
+
+    <script>
+        //go fullscreen
+        document.addEventListener("click", function () {
+            fullScreen(document.body);
+        }, false)
+
+        //helper function
+        function fullScreen(element) {
+            if (element.requestFullScreen) {
+                element.requestFullScreen();
+            } else if (element.webkitRequestFullScreen) {
+                element.webkitRequestFullScreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            }
+        }
+    </script>
 </head>
 
 <body>
